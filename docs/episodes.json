@@ -1,0 +1,72 @@
+[
+  {
+    "id": "chapter-01",
+    "label": "Chapter 1",
+    "title": "The Orange Star Crystal",
+    "durationSeconds": 712,
+    "src": "audio/chapter-01.mp3"
+  },
+  {
+    "id": "chapter-02",
+    "label": "Chapter 2",
+    "title": "The Train That Went Around Twice",
+    "durationSeconds": 795,
+    "src": "audio/chapter-02.mp3"
+  },
+  {
+    "id": "chapter-03",
+    "label": "Chapter 3",
+    "title": "The Great Galaxy Rally",
+    "durationSeconds": 703,
+    "src": "audio/chapter-03.mp3"
+  },
+  {
+    "id": "chapter-04",
+    "label": "Chapter 4",
+    "title": "The Floating Dinosaur Playground",
+    "durationSeconds": 628,
+    "src": "audio/chapter-04.mp3"
+  },
+  {
+    "id": "chapter-05",
+    "label": "Chapter 5",
+    "title": "The Secret of the Singing Sea",
+    "durationSeconds": 747,
+    "src": "audio/chapter-05.mp3"
+  },
+  {
+    "id": "chapter-06",
+    "label": "Chapter 6",
+    "title": "The Popcorn Mountain Mystery",
+    "durationSeconds": 779,
+    "src": "audio/chapter-06.mp3"
+  },
+  {
+    "id": "chapter-07",
+    "label": "Chapter 7",
+    "title": "The Secret of the Rainbow Cave",
+    "durationSeconds": 802,
+    "src": "audio/chapter-07.mp3"
+  },
+  {
+    "id": "chapter-08",
+    "label": "Chapter 8",
+    "title": "The Friendly Ghost of Rocket Mountain",
+    "durationSeconds": 819,
+    "src": "audio/chapter-08.mp3"
+  },
+  {
+    "id": "chapter-09",
+    "label": "Chapter 9",
+    "title": "The Moonlight Zoo Express",
+    "durationSeconds": 840,
+    "src": "audio/chapter-09.mp3"
+  },
+  {
+    "id": "birthday-special",
+    "label": "Birthday special",
+    "title": "Spider-Man's Three Birthday Stars",
+    "durationSeconds": 563,
+    "src": "audio/birthday-special.mp3"
+  }
+]
