@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#141425">
+<meta name="description" content="A case study in making an ongoing bedtime audio series for my kids. Listen to the full first series.">
+<title>Bedtime Story Studio</title>
+<style>
+  :root{color-scheme:dark;--base:#141425;--surface:#23243a;--line:#45475f;--paper:#f9efe0;--muted:#cdc6d5;--gold:#ffc583}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(ellipse at 83% 0%,#38294a 0,transparent 42rem),var(--base);color:var(--paper);font:1rem/1.55 system-ui,sans-serif}
+  a{color:var(--gold)}
+  main{width:min(70rem,calc(100% - 2.5rem));margin:auto;padding:clamp(2.5rem,8vw,6rem) 0 4rem}
+  h1,h2,h3,p{margin:0}
+  h1,h2,h3{font-family:Georgia,serif;font-weight:normal}
+  h1{font-size:clamp(3rem,9vw,7.2rem);line-height:.98;letter-spacing:-.055em;max-width:10ch}
+  h2{font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.1}
+  h3{font-size:1.35rem}
+  .intro{margin-top:1.25rem;color:var(--muted);max-width:56ch}
+  .hero{display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:1.25rem;margin-bottom:3rem}
+  .moon{width:clamp(4rem,23vw,16rem);aspect-ratio:1;border-radius:50%;justify-self:center;background:radial-gradient(circle at 34% 34%,#fff6dc,#f8be83 68%,#c67566);box-shadow:0 0 5rem #daa17a63;opacity:.88}
+  .collection{display:grid;grid-template-columns:1.08fr 1fr;gap:1rem;align-items:start}
+  .player,.playlist{border:1px solid var(--line);background:var(--surface);border-radius:1.2rem;padding:clamp(1rem,3vw,1.8rem)}
+  .player{position:sticky;top:1rem}
+  #current-label{color:var(--gold);margin:1.2rem 0 .15rem}
+  #current-title{min-height:2.6em}
+  audio{display:block;width:100%;margin:1rem 0}
+  .download{display:inline-block;border:1px solid var(--line);padding:.42rem .75rem;border-radius:.5rem;text-decoration:none}
+  ol{padding:0;margin:1rem 0 0;list-style:none}
+  li+li{border-top:1px solid var(--line)}
+  button{font:inherit;color:inherit;text-align:left}
+  .episode{display:grid;grid-template-columns:1fr auto;gap:.15rem .5rem;background:transparent;border:0;width:100%;padding:.65rem .5rem;cursor:pointer;border-radius:.4rem}
+  .episode:hover,.episode[aria-current="true"]{background:#35364d}
+  .episode small,.duration{color:var(--muted);font-size:.85rem}
+  .episode[aria-current="true"] small{color:var(--gold)}
+  .episode strong{grid-column:1;grid-row:2;font-weight:550}
+  .duration{grid-column:2;grid-row:1 / span 2;align-self:center;font-variant-numeric:tabular-nums}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+  .about{margin-top:3rem;border-top:1px solid var(--line);padding-top:1.5rem}
+  .about p{color:var(--muted);max-width:68ch;margin-top:.8rem}
+  #status:not(:empty){margin-top:.65rem;color:var(--muted)}
+  @media(max-width:660px){.collection{grid-template-columns:1fr}.player{position:static}.hero{grid-template-columns:1fr auto}.moon{width:clamp(3.4rem,16vw,7rem)}}
+</style>
+<script defer src="player.js"></script>
+</head>
+<body>
+<main>
+  <header class="hero">
+    <div><h1>Bedtime Story Studio</h1><p class="intro">An ongoing audio adventure I made for my kids, with a new world to explore at bedtime.</p></div>
+    <div class="moon" aria-hidden="true"></div>
+  </header>
+  <div class="collection">
+    <section class="player" aria-labelledby="listen-heading">
+      <h2 id="listen-heading">Listen</h2>
+      <p id="current-label"></p>
+      <h3 id="current-title">Choose an episode</h3>
+      <audio id="audio" controls preload="metadata" aria-label="Episode audio"></audio>
+      <a class="download" id="download" hidden download>Download MP3</a>
+      <p id="status" role="status"></p>
+    </section>
+    <section class="playlist" aria-labelledby="episodes-heading">
+      <h2 id="episodes-heading">Episodes</h2>
+      <ol id="episodes"></ol>
+    </section>
+  </div>
+  <section class="about" aria-labelledby="case-heading">
+    <h2 id="case-heading">How I made it</h2>
+    <p>I wrote this as a continuing series so each bedtime adventure could build on familiar places and characters. I used ElevenLabs Creative Flows to narrate the stories in parts, then joined those parts into a single track for each chapter.</p>
+    <p>The episode list comes from a catalog. Future stories can be added by publishing an MP3 and appending its details to the catalog.</p>
+  </section>
+</main>
+</body>
+</html>
