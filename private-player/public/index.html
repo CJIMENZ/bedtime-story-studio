@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="theme-color" content="#1c2833">
+  <title>Private Story Library</title>
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="layout">
+    <header class="header">
+      <div class="mark" aria-hidden="true">✦</div>
+      <div>
+        <p class="eyebrow">A quiet place for stories</p>
+        <h1>Story Library</h1>
+      </div>
+      <button id="logout" type="button" class="small" hidden>Sign out</button>
+    </header>
+
+    <main>
+      <section id="gate" class="panel gate" aria-labelledby="gate-title" hidden>
+        <span class="ornament" aria-hidden="true">☾</span>
+        <h2 id="gate-title">Welcome back</h2>
+        <p>Enter your private passcode to listen.</p>
+        <form id="login-form">
+          <label for="passcode">Passcode</label>
+          <input id="passcode" name="passcode" type="password" autocomplete="current-password"
+            minlength="1" maxlength="256" required>
+          <button type="submit" class="primary">Open library</button>
+        </form>
+        <p id="login-message" class="message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="library" class="library" hidden aria-labelledby="library-title">
+        <div class="panel intro">
+          <p class="eyebrow">Saved chapters</p>
+          <h2 id="library-title">Choose a story</h2>
+          <p>Pick a chapter, settle in, and listen at your own pace.</p>
+          <p id="count" class="count"></p>
+        </div>
+        <div class="columns">
+          <section class="panel chapters" aria-label="Chapters">
+            <div id="chapter-list" class="chapter-list"></div>
+          </section>
+          <section class="panel player" aria-label="Story player">
+            <div class="art" aria-hidden="true"><span>✷</span><span>✦</span><span>☾</span></div>
+            <p class="eyebrow">Now listening</p>
+            <h3 id="now-playing">Select a chapter</h3>
+            <audio id="audio" controls controlslist="nodownload" preload="none" aria-label="Story audio player"></audio>
+            <div class="player-actions">
+              <button id="previous" type="button" disabled>Previous</button>
+              <button id="next" type="button" disabled>Next</button>
+            </div>
+            <p id="player-message" class="message" role="status" aria-live="polite"></p>
+          </section>
+        </div>
+      </section>
+    </main>
+    <footer>Private listening. Stories stay in your own protected media storage.</footer>
+  </div>
+</body>
+</html>
