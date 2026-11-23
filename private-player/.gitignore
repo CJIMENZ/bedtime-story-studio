@@ -1,0 +1,10 @@
+# Real family content must never enter Git.
+media/
+private/
+.env
+.env.*
+*.mp3
+*.m4a
+*.wav
+private-catalog.json
+*.secret
