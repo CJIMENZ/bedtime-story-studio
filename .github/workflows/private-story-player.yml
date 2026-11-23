@@ -1,0 +1,32 @@
+name: Private Story Player Checks
+on:
+  pull_request:
+    paths:
+      - "private-player/**"
+      - ".github/workflows/private-story-player.yml"
+  push:
+    paths:
+      - "private-player/**"
+      - ".github/workflows/private-story-player.yml"
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Syntax
+        run: npm --prefix private-player run check
+      - name: Authentication, privacy and byte-range regressions
+        run: npm --prefix private-player test
+      - name: Reject accidental media or secret artifacts in the new player
+        shell: bash
+        run: |
+          if git ls-files private-player/ | grep -Ei '(^|/)(media|private)/|\.mp3$|\.m4a$|\.wav$|(^|/)\.env($|\.)|\.secret$|private-catalog\.json$'; then
+            echo "A private media file or secret path was committed." >&2
+            exit 1
+          fi
