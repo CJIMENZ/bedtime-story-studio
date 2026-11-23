@@ -46,6 +46,23 @@ Use HTTPS termination via a trusted reverse proxy, secure routing, rate limiting
 
 The browser UI contains no chapter metadata until authenticated. The catalog and every stream request require an active session. No third-party analytics, script libraries or external image fetches. The player must not run from GitHub Pages or an unprotected public static host.
 
+## Fail-closed release preflight (Board #128 follow-up)
+
+The new, deliberately **manual** release check prevents passing off a working player as a private deployment while the source repository, the destination repository, or the old GitHub Pages routes remain publicly accessible. It makes **no GitHub settings changes** and never reads, copies, or prints recordings. Run this only after the owner has approved and performed the repository, Pages, and private-storage changes.
+
+From private-player/, inject the following values through your approved local secrets/environment manager (do not paste secrets into tracked files or shell history):
+
+| Environment variable | Meaning |
+| --- | --- |
+| STORY_PLAYER_REPO | The owner-approved destination repository (owner/name) |
+| STORY_LEGACY_REPO | The original repository that held the published audio |
+| STORY_GITHUB_TOKEN | GitHub token with metadata and Pages read access to **both** repositories |
+| STORY_LEGACY_PROBE_URLS | JSON array of 1-32 previously served audio URLs on https://OWNER.github.io/REPO/... |
+
+Then run \`npm run release:check\`. The script requires **both repositories to be private**, \`has_pages=false\` and no accessible Pages API configuration on either. It requests a short byte range from each legacy audio URL **without cookies or GitHub credentials**; only explicit HTTP denial (401/403/404/410) passes. A redirect, 200/206 response, network failure, missing visibility permission, or untested URL blocks release. It does not access family files on disk.
+
+**Scope limit:** Legacy custom domains, additional old asset URLs, third-party caches, Git history, downloaded copies and authenticated production playback still need independent manual verification. A passing preflight does not certify those areas or grant permission to deploy. It cannot retract historical public copies. The repository and Pages privacy changes remain an owner decision, not a developer SQL/GitHub action.
+
 ## Release gates
 
 1. Independent code/security review of cookie lifecycle, login rate limits, CSRF/origin handling, path validation, ranges and streaming.
