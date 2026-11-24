@@ -70,6 +70,13 @@
     "src": "audio/chapter-10.mp3"
   },
   {
+    "id": "chapter-11",
+    "label": "Chapter 11",
+    "title": "The Garden of Giant Flowers",
+    "durationSeconds": 746,
+    "src": "audio/chapter-11.mp3"
+  },
+  {
     "id": "birthday-special",
     "label": "Birthday special",
     "title": "Spider-Man's Three Birthday Stars",
