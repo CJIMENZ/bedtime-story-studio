@@ -77,6 +77,13 @@
     "src": "audio/chapter-11.mp3"
   },
   {
+    "id": "chapter-12",
+    "label": "Chapter 12",
+    "title": "The Snowbell Village Express",
+    "durationSeconds": 806,
+    "src": "audio/chapter-12.mp3"
+  },
+  {
     "id": "birthday-special",
     "label": "Birthday special",
     "title": "Spider-Man's Three Birthday Stars",
