@@ -91,6 +91,13 @@
     "src": "audio/chapter-13.mp3"
   },
   {
+    "id": "chapter-14",
+    "label": "Chapter 14",
+    "title": "The Monster Trucks of Rolling Hills",
+    "durationSeconds": 754,
+    "src": "audio/chapter-14.mp3"
+  },
+  {
     "id": "birthday-special",
     "label": "Birthday special",
     "title": "Spider-Man's Three Birthday Stars",
