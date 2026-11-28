@@ -36,6 +36,9 @@ async function loadEpisodes() {
   const response = await fetch("episodes.json");
   if (!response.ok) throw new Error("Catalog request failed");
   const episodes = await response.json();
+  // Newest numbered chapter first; keep specials after the regular series.
+  const chapterNumber = ({ id }) => Number(/^chapter-(\d+)$/.exec(id)?.[1] ?? 0);
+  episodes.sort((a, b) => chapterNumber(b) - chapterNumber(a));
   episodes.forEach((episode, index) => {
     const item = document.createElement("li");
     const button = document.createElement("button");
