@@ -98,6 +98,13 @@
     "src": "audio/chapter-14.mp3"
   },
   {
+    "id": "chapter-15",
+    "label": "Chapter 15",
+    "title": "The Library of Little Worlds",
+    "durationSeconds": 817,
+    "src": "audio/chapter-15.mp3"
+  },
+  {
     "id": "birthday-special",
     "label": "Birthday special",
     "title": "Spider-Man's Three Birthday Stars",
